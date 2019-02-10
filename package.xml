@@ -116,6 +116,9 @@
         <members>Contact.CleanStatus</members>
         <members>Contact.CurrencyIsoCode</members>
         <members>Contact.LeadSource</members>
+        <members>ContactRequest.PreferredChannel</members>
+        <members>ContactRequest.RequestReason</members>
+        <members>ContactRequest.Status</members>
         <members>ContentVersion.CurrencyIsoCode</members>
         <members>ContentVersion.SharingOption</members>
         <members>ContentVersion.SharingPrivacy</members>
