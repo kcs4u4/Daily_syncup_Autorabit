@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <version>45.0</version>
     <types>
+        <members>Test_action</members>
+        <name>ActionLinkGroupTemplate</name>
+    </types>
+    <types>
         <members>A0123</members>
         <members>A026</members>
         <members>AInsertAction</members>
@@ -14,6 +18,7 @@
         <members>TowerMapControllerClass</members>
         <members>TowerMapUtilClass</members>
         <members>aa</members>
+        <members>aaa</members>
         <members>importDataFromCSVController</members>
         <name>ApexClass</name>
     </types>
@@ -32,6 +37,7 @@
     </types>
     <types>
         <members>Audit_Update</members>
+        <members>CustomerInsert</members>
         <name>ApexTrigger</name>
     </types>
     <types>
@@ -102,6 +108,9 @@
         <members>Asset.CurrencyIsoCode</members>
         <members>Asset.Status</members>
         <members>AssetRelationship.CurrencyIsoCode</members>
+        <members>Audit_Trail__c.Created_By__c</members>
+        <members>Audit_Trail__c.User_Id__c</members>
+        <members>Audit_Trail__c.user_Name__c</members>
         <members>Campaign.CurrencyIsoCode</members>
         <members>Campaign.Status</members>
         <members>Campaign.Type</members>
@@ -278,6 +287,7 @@
         <members>Account-Account %28Sales%29 Layout</members>
         <members>Account-Account Layout</members>
         <members>Account-Warehouse Schema Account Layout</members>
+        <members>Audit_Trail__c-Audit Trail Layout</members>
         <members>Case-Case %28Marketing%29 Layout</members>
         <members>Case-Case %28Sales%29 Layout</members>
         <members>Case-Case %28Support%29 Layout</members>
@@ -300,6 +310,7 @@
     <types>
         <members>Account.AllAccounts</members>
         <members>Account.sscascs</members>
+        <members>Audit_Trail__c.All</members>
         <members>Case_Event__c.All</members>
         <members>Contact.NewThisWeek</members>
         <members>SetupTest__c.Test_Audit</members>

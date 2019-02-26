@@ -59,6 +59,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>aaa</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>importDataFromCSVController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -106,6 +110,21 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Asset.Status</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Audit_Trail__c.Created_By__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Audit_Trail__c.User_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Audit_Trail__c.user_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -297,6 +316,9 @@
         <layout>Account-Account Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Audit_Trail__c-Audit Trail Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Case-Case Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -330,26 +352,7 @@
     <layoutAssignments>
         <layout>Tower__c-Tower Layout</layout>
     </layoutAssignments>
-    <loginHours>
-        <fridayEnd>1260</fridayEnd>
-        <fridayStart>660</fridayStart>
-        <mondayEnd>720</mondayEnd>
-        <mondayStart>600</mondayStart>
-        <saturdayEnd>1320</saturdayEnd>
-        <saturdayStart>660</saturdayStart>
-        <sundayEnd>1200</sundayEnd>
-        <sundayStart>540</sundayStart>
-        <thursdayEnd>1200</thursdayEnd>
-        <thursdayStart>600</thursdayStart>
-        <tuesdayEnd>960</tuesdayEnd>
-        <tuesdayStart>600</tuesdayStart>
-        <wednesdayEnd>1200</wednesdayEnd>
-        <wednesdayStart>600</wednesdayStart>
-    </loginHours>
-    <loginIpRanges>
-        <endAddress>250.250.250.250</endAddress>
-        <startAddress>1.1.1.1</startAddress>
-    </loginIpRanges>
+    <loginHours/>
     <pageAccesses>
         <apexPage>importDataFromCSVController</apexPage>
         <enabled>false</enabled>
@@ -855,6 +858,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>SubscribeToLightningReports</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>TransactionalEmailSend</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
