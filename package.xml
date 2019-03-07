@@ -38,9 +38,12 @@
     <types>
         <members>Audit_Update</members>
         <members>CustomerInsert</members>
+        <members>DataSheetHistory</members>
+        <members>Hello</members>
         <name>ApexTrigger</name>
     </types>
     <types>
+        <members>Lead.Lead assignment</members>
         <members>Lead.Test_Audit</members>
         <name>AssignmentRule</name>
     </types>
