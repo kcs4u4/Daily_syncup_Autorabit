@@ -172,6 +172,8 @@
         <members>Goal.CurrencyIsoCode</members>
         <members>Goal.Status</members>
         <members>Idea.Status</members>
+        <members>Image.ImageClass</members>
+        <members>Image.ImageClassObjectType</members>
         <members>Lead.CleanStatus</members>
         <members>Lead.CurrencyIsoCode</members>
         <members>Lead.Industry</members>
@@ -190,6 +192,7 @@
         <members>Opportunity.Type</members>
         <members>OpportunityContactRole.Role</members>
         <members>Order.CurrencyIsoCode</members>
+        <members>Order.Status</members>
         <members>Order.Type</members>
         <members>PartnerFundAllocation.CurrencyIsoCode</members>
         <members>PartnerFundClaim.CurrencyIsoCode</members>

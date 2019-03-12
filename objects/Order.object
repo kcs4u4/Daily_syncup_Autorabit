@@ -5,6 +5,11 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>Status</fullName>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Type</fullName>
         <trackHistory>true</trackHistory>
         <type>Picklist</type>
