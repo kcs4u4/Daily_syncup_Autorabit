@@ -6,14 +6,17 @@ global class AuditTrail_to_CustomObject {
                                        Action, CreatedBy.Name, CreatedBy.id, CreatedBy.Email, CreatedDate,Display,
                                        Section FROM SetupAuditTrail where CreatedDate=TODAY AND HOUR_IN_DAY(CreatedDate) > 1 ];
         System.debug('Setup' +setup);
-        String SString;
+        String sString;
+        String actionString;
         for (SetupAuditTrail u: Setup){
             kcs_dev__Audit_Trail__c c = new kcs_dev__Audit_Trail__c();
+            actionString=u.Action;
+            System.debug('actionString'+actionString);
         // Apex Component
-            if(u.Section=='Component' ){
+         /*   if(u.Section=='Component' ){
                 c.kcs_dev__Section__c='ApexComponent';
-                SString=u.display;
-                c.kcs_dev__Display__c=SString.substringAfter('Component');
+                sString=u.display;
+                c.kcs_dev__Display__c=sString.substringAfter('Component');
                 c.kcs_dev__Created_Date__c=u.CreatedDate;
                 c.kcs_dev__Created_By__c=u.CreatedBy.Email;
                 c.kcs_dev__User_Id__c=u.CreatedBy.id;
@@ -23,8 +26,8 @@ global class AuditTrail_to_CustomObject {
            // Apex Class 
             if(u.Section=='Apex Class' && u.Action=='createdApexClass'){
                 c.kcs_dev__Section__c='ApexClass';
-                SString=u.display;
-                c.kcs_dev__Display__c=SString.substringBetween('Created ',' Apex Class code');
+                sString=u.display;
+                c.kcs_dev__Display__c=sString.substringBetween('Created ',' Apex Class code');
                 c.kcs_dev__Created_Date__c=u.CreatedDate;
                 c.kcs_dev__Created_By__c=u.CreatedBy.Email;
                 c.kcs_dev__User_Id__c=u.CreatedBy.id;
@@ -33,8 +36,8 @@ global class AuditTrail_to_CustomObject {
             } 
             if(u.Section=='Apex Class' && u.Action=='changedApexClass'){
                 c.kcs_dev__Section__c='ApexClass';
-                SString=u.display;
-                c.kcs_dev__Display__c=SString.substringBetween('Changed ',' Apex Class code');
+                sString=u.display;
+                c.kcs_dev__Display__c=sString.substringBetween('Changed ',' Apex Class code');
                 c.kcs_dev__Created_Date__c=u.CreatedDate;
                 c.kcs_dev__Created_By__c=u.CreatedBy.Email;
                 c.kcs_dev__User_Id__c=u.CreatedBy.id;
@@ -43,8 +46,8 @@ global class AuditTrail_to_CustomObject {
             }
             if(u.Section=='Apex Class' && u.Action=='deletedApexClass'){
                 c.kcs_dev__Section__c='ApexClass';
-                SString=u.display;
-                c.kcs_dev__Display__c=SString.substringBetween('Deleted ',' Apex Class code');
+                sString=u.display;
+                c.kcs_dev__Display__c=sString.substringBetween('Deleted ',' Apex Class code');
                 c.kcs_dev__Created_Date__c=u.CreatedDate;
                 c.kcs_dev__Created_By__c=u.CreatedBy.Email;
                 c.kcs_dev__User_Id__c=u.CreatedBy.id;
@@ -54,8 +57,8 @@ global class AuditTrail_to_CustomObject {
             // Apex Page
             if(u.Section=='Page'){
                 c.kcs_dev__Section__c='ApexPage';
-                SString=u.display;
-                c.kcs_dev__Display__c=SString.substringAfter('Page ');
+                sString=u.display;
+                c.kcs_dev__Display__c=sString.substringAfter('Page ');
                 c.kcs_dev__Created_Date__c=u.CreatedDate;
                 c.kcs_dev__Created_By__c=u.CreatedBy.Email;
                 c.kcs_dev__User_Id__c=u.CreatedBy.id;
@@ -65,8 +68,8 @@ global class AuditTrail_to_CustomObject {
             //Apex Trigger
               if(u.Section=='Apex Trigger'){
                 c.kcs_dev__Section__c='ApexTrigger';
-                SString=u.display;
-                c.kcs_dev__Display__c=SString.substringAfter('Trigger code: ');
+                sString=u.display;
+                c.kcs_dev__Display__c=sString.substringAfter('Trigger code: ');
                 c.kcs_dev__Created_Date__c=u.CreatedDate;
                 c.kcs_dev__Created_By__c=u.CreatedBy.Email;
                 c.kcs_dev__User_Id__c=u.CreatedBy.id;
@@ -76,8 +79,8 @@ global class AuditTrail_to_CustomObject {
             //Approval Process
               if(u.Section=='Approval Process'){
                 c.kcs_dev__Section__c='ApprovalProcess';
-                SString=u.display;
-                c.kcs_dev__Display__c=SString.substringAfter('Approval Process: ');
+                sString=u.display;
+                c.kcs_dev__Display__c=sString.substringAfter('Approval Process: ');
                 c.kcs_dev__Created_Date__c=u.CreatedDate;
                 c.kcs_dev__Created_By__c=u.CreatedBy.Email;
                 c.kcs_dev__User_Id__c=u.CreatedBy.id;
@@ -87,8 +90,8 @@ global class AuditTrail_to_CustomObject {
              //AssignmentRule
               if(u.Section=='Customize Leads' || u.Section=='Customize Cases'){
                 c.kcs_dev__Section__c='AssignmentRule';
-                SString=u.display;
-                c.kcs_dev__Display__c=SString.substringAfter('Assignment Rule ');
+                sString=u.display;
+                c.kcs_dev__Display__c=sString.substringAfter('Assignment Rule ');
                 c.kcs_dev__Created_Date__c=u.CreatedDate;
                 c.kcs_dev__Created_By__c=u.CreatedBy.Email; 
                 c.kcs_dev__User_Id__c=u.CreatedBy.id;
@@ -98,30 +101,30 @@ global class AuditTrail_to_CustomObject {
             //AuthProvider
               if(u.Section=='Auth. Providers'){
                 c.kcs_dev__Section__c='AuthProvider';
-                SString=u.display;
-                c.kcs_dev__Display__c=SString.substringAfter('Auth. Provider ');
+                sString=u.display;
+                c.kcs_dev__Display__c=sString.substringAfter('Auth. Provider ');
                 c.kcs_dev__Created_Date__c=u.CreatedDate;
                 c.kcs_dev__Created_By__c=u.CreatedBy.Email;
                 c.kcs_dev__User_Id__c=u.CreatedBy.id;
                 c.kcs_dev__user_Name__c=u.CreatedBy.Name;
                 Audit.add(c);
             }
-             //AutoResponseRule
+/*              //AutoResponseRule
               if((u.Section=='Customize Leads' || u.Section=='Customize Cases') ){
                 c.kcs_dev__Section__c='AutoResponseRule';
-                SString=u.display;
-                c.kcs_dev__Display__c=SString.substringAfter('Auto-Response Rule ');
+                sString=u.display;
+                c.kcs_dev__Display__c=sString.substringAfter('Auto-Response Rule ');
                 c.kcs_dev__Created_Date__c=u.CreatedDate;
                 c.kcs_dev__Created_By__c=u.CreatedBy.Email; 
                 c.kcs_dev__User_Id__c=u.CreatedBy.id;
                 c.kcs_dev__user_Name__c=u.CreatedBy.Name;
                 Audit.add(c);
             }
-             //AutoResponseRule
+            //AutoResponseRule
               if((u.Section=='Customize Leads' || u.Section=='Customize Cases') ){
                 c.kcs_dev__Section__c='AutoResponseRule';
-                SString=u.display;
-                c.kcs_dev__Display__c=SString.substringAfter('Auto-Response Rule ');
+                sString=u.display;
+                c.kcs_dev__Display__c=sString.substringAfter('Auto-Response Rule ');
                 c.kcs_dev__Created_Date__c=u.CreatedDate;
                 c.kcs_dev__Created_By__c=u.CreatedBy.Email; 
                 c.kcs_dev__User_Id__c=u.CreatedBy.id;
@@ -129,33 +132,54 @@ global class AuditTrail_to_CustomObject {
                 Audit.add(c);
             }
              //BusinessProcess
-              if((u.Section=='' ) ){
+              if((u.Section=='' && u.Section==Null ) ){
                 c.kcs_dev__Section__c='BusinessProcess';
-                SString=u.display;
-                c.kcs_dev__Display__c=SString.substringBetween('"','"');
+                sString=u.display;
+                c.kcs_dev__Display__c=sString.substringBetween('"','"');
                 c.kcs_dev__Created_Date__c=u.CreatedDate;
                 c.kcs_dev__Created_By__c=u.CreatedBy.Email; 
                 c.kcs_dev__User_Id__c=u.CreatedBy.id;
                 c.kcs_dev__user_Name__c=u.CreatedBy.Name;
                 Audit.add(c);
             }
-            //BusinessProcess
-              if((u.Section=='' ) ){
-                c.kcs_dev__Section__c='BusinessProcess';
-                SString=u.display;
-                c.kcs_dev__Display__c=SString.substringBetween('"','"');
+            //Certificate
+              if(u.Section=='Certificate and Key Management' && (u.Action=='insertCertificate' || u.Action=='deleteCertificate' ) ){
+                c.kcs_dev__Section__c='Certificate';
+                sString=u.display;
+                c.kcs_dev__Display__c=sString.substringAfter('Certificate');
                 c.kcs_dev__Created_Date__c=u.CreatedDate;
                 c.kcs_dev__Created_By__c=u.CreatedBy.Email; 
                 c.kcs_dev__User_Id__c=u.CreatedBy.id;
                 c.kcs_dev__user_Name__c=u.CreatedBy.Name;
                 Audit.add(c);
             }
-            
+            //Certificate
+              if(u.Section=='Certificate and Key Management' && (u.Action=='changeCertificateFriendlyName' || u.Action=='changeCertificateDeveloperName' ) ){
+                c.kcs_dev__Section__c='Certificate';
+                sString=u.display;
+                c.kcs_dev__Display__c=sString.substringAfter('to');
+                c.kcs_dev__Created_Date__c=u.CreatedDate;
+                c.kcs_dev__Created_By__c=u.CreatedBy.Email; 
+                c.kcs_dev__User_Id__c=u.CreatedBy.id;
+                c.kcs_dev__user_Name__c=u.CreatedBy.Name;
+                Audit.add(c);
+             } */
+           //CompactLayout 
+              if(actionString.contains('CompactLayout')){
+                c.kcs_dev__Section__c='CompactLayout';
+                sString=u.display;
+                c.kcs_dev__Display__c=sString.substringAfter('on')+'.'+sString.substringBetween('Compact Layout','on');
+                c.kcs_dev__Created_Date__c=u.CreatedDate;
+                c.kcs_dev__Created_By__c=u.CreatedBy.Email; 
+                c.kcs_dev__User_Id__c=u.CreatedBy.id;
+                c.kcs_dev__user_Name__c=u.CreatedBy.Name;
+                Audit.add(c);
+            } 
 
             if(u.Section=='Reporting Snapshots' && u.Action=='createdReportJob'  ){
                 c.kcs_dev__Section__c='AnalyticSnapshot';  
-                SString=u.display;
-                c.kcs_dev__Display__c=SString.substringAfter('Created reporting snapshot ');
+                sString=u.display;
+                c.kcs_dev__Display__c=sString.substringAfter('Created reporting snapshot ');
                 c.kcs_dev__Created_Date__c=u.CreatedDate;
                 c.kcs_dev__Created_By__c=u.CreatedBy.Email;
                 c.kcs_dev__User_Id__c=u.CreatedBy.id;

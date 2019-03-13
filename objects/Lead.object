@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <businessProcesses>
+        <fullName>Duo</fullName>
+        <isActive>true</isActive>
+        <values>
+            <fullName>Closed - Converted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed - Not Converted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Next123</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Open - Not Contacted</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Working - Contacted</fullName>
+            <default>false</default>
+        </values>
+    </businessProcesses>
+    <businessProcesses>
         <fullName>Tes_Aduit</fullName>
         <isActive>false</isActive>
         <values>
@@ -28,6 +56,14 @@
             <default>false</default>
         </values>
     </businessProcesses>
+    <compactLayouts>
+        <fullName>Test1</fullName>
+        <fields>CampaignId</fields>
+        <fields>CleanStatus</fields>
+        <fields>Company</fields>
+        <fields>CompanyDunsNumber</fields>
+        <label>Test1</label>
+    </compactLayouts>
     <fields>
         <fullName>CleanStatus</fullName>
         <trackFeedHistory>false</trackFeedHistory>

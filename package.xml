@@ -58,6 +58,7 @@
     </types>
     <types>
         <members>Case.Test_Audit</members>
+        <members>Lead.Duo</members>
         <members>Lead.Tes_Aduit</members>
         <members>Opportunity.Test_Audit1</members>
         <members>Solution.Test_Audit</members>
@@ -67,6 +68,10 @@
         <members>Article.CmsNew1</members>
         <members>Article.Setup_test</members>
         <name>CMSConnectSource</name>
+    </types>
+    <types>
+        <members>Lead.Test1</members>
+        <name>CompactLayout</name>
     </types>
     <types>
         <members>download</members>
@@ -83,6 +88,7 @@
     </types>
     <types>
         <members>DX</members>
+        <members>Hello_World</members>
         <members>Test_Flexi</members>
         <name>CustomApplication</name>
     </types>
