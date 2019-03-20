@@ -13,7 +13,7 @@ global class AuditTrail_to_CustomObject {
             actionString=u.Action;
             System.debug('actionString'+actionString);
         // Apex Component
-         /*   if(u.Section=='Component' ){
+            if(u.Section=='Component' ){
                 c.kcs_dev__Section__c='ApexComponent';
                 sString=u.display;
                 c.kcs_dev__Display__c=sString.substringAfter('Component');
@@ -119,7 +119,7 @@ global class AuditTrail_to_CustomObject {
                 c.kcs_dev__User_Id__c=u.CreatedBy.id;
                 c.kcs_dev__user_Name__c=u.CreatedBy.Name;
                 Audit.add(c);
-            }
+            } 
             //AutoResponseRule
               if((u.Section=='Customize Leads' || u.Section=='Customize Cases') ){
                 c.kcs_dev__Section__c='AutoResponseRule';
@@ -130,7 +130,7 @@ global class AuditTrail_to_CustomObject {
                 c.kcs_dev__User_Id__c=u.CreatedBy.id;
                 c.kcs_dev__user_Name__c=u.CreatedBy.Name;
                 Audit.add(c);
-            }
+            } */
              //BusinessProcess
               if((u.Section=='' && u.Section==Null ) ){
                 c.kcs_dev__Section__c='BusinessProcess';
@@ -163,9 +163,9 @@ global class AuditTrail_to_CustomObject {
                 c.kcs_dev__User_Id__c=u.CreatedBy.id;
                 c.kcs_dev__user_Name__c=u.CreatedBy.Name;
                 Audit.add(c);
-             } */
+             } 
            //CompactLayout 
-              if(actionString.contains('CompactLayout')){
+              if(u.Section=='Custom Apps' && u.display.contains('Compact Layout')){
                 c.kcs_dev__Section__c='CompactLayout';
                 sString=u.display;
                 c.kcs_dev__Display__c=sString.substringAfter('on')+'.'+sString.substringBetween('Compact Layout','on');
@@ -174,8 +174,66 @@ global class AuditTrail_to_CustomObject {
                 c.kcs_dev__User_Id__c=u.CreatedBy.id;
                 c.kcs_dev__user_Name__c=u.CreatedBy.Name;
                 Audit.add(c);
-            } 
+            }  
+            //Connected App have to write
 
+            //CustomApplication
+              if(u.Section=='Custom Apps' && u.Action.contains('packagingapp') ){
+                c.kcs_dev__Section__c='CustomApplication';
+                sString=u.display;
+                c.kcs_dev__Display__c=sString.substringAfter('package:');
+                c.kcs_dev__Created_Date__c=u.CreatedDate;
+                c.kcs_dev__Created_By__c=u.CreatedBy.Email; 
+                c.kcs_dev__User_Id__c=u.CreatedBy.id;
+                c.kcs_dev__user_Name__c=u.CreatedBy.Name;
+                Audit.add(c);
+             } 
+             //CustomApplication
+             if(u.Section=='Custom Apps' && (u.Action.contains('TabSet')) ){
+                c.kcs_dev__Section__c='CustomApplication';
+                sString=u.display;
+                c.kcs_dev__Display__c=sString.substringAfter('app');
+                c.kcs_dev__Created_Date__c=u.CreatedDate;
+                c.kcs_dev__Created_By__c=u.CreatedBy.Email; 
+                c.kcs_dev__User_Id__c=u.CreatedBy.id;
+                c.kcs_dev__user_Name__c=u.CreatedBy.Name;
+                Audit.add(c);
+             } 
+             //CustomFeedFilter
+              if(u.Action=='createdFeedFilter' ){
+                c.kcs_dev__Section__c='CustomFeedFilter';
+                sString=u.display;
+                c.kcs_dev__Display__c=sString.substringBetween('Feed Filter: ',' with');
+                c.kcs_dev__Created_Date__c=u.CreatedDate;
+                c.kcs_dev__Created_By__c=u.CreatedBy.Email; 
+                c.kcs_dev__User_Id__c=u.CreatedBy.id;
+                c.kcs_dev__user_Name__c=u.CreatedBy.Name;
+                Audit.add(c);
+             } 
+              //CustomFeedFilter
+             if(u.Action=='deletedFeedFilter' ){
+                c.kcs_dev__Section__c='CustomFeedFilter';
+                sString=u.display;
+                c.kcs_dev__Display__c=sString.substringAfter('Feed Filter: ');
+                c.kcs_dev__Created_Date__c=u.CreatedDate;
+                c.kcs_dev__Created_By__c=u.CreatedBy.Email; 
+                c.kcs_dev__User_Id__c=u.CreatedBy.id;
+                c.kcs_dev__user_Name__c=u.CreatedBy.Name;
+                Audit.add(c);
+             } 
+              //CustomFeedFilter
+             if(u.Action.contains('updatedFeedFilter') ){
+                c.kcs_dev__Section__c='CustomFeedFilter';
+                sString=u.display;
+                c.kcs_dev__Display__c=sString.substringAfter('to ');
+                c.kcs_dev__Created_Date__c=u.CreatedDate;
+                c.kcs_dev__Created_By__c=u.CreatedBy.Email; 
+                c.kcs_dev__User_Id__c=u.CreatedBy.id;
+                c.kcs_dev__user_Name__c=u.CreatedBy.Name;
+                Audit.add(c);
+             } 
+
+              //AnalyticSnapshot
             if(u.Section=='Reporting Snapshots' && u.Action=='createdReportJob'  ){
                 c.kcs_dev__Section__c='AnalyticSnapshot';  
                 sString=u.display;

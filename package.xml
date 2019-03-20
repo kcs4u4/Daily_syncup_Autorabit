@@ -28,6 +28,7 @@
         <name>ApexComponent</name>
     </types>
     <types>
+        <members>PdfPage</members>
         <members>importDataFromCSVController</members>
         <name>ApexPage</name>
     </types>
@@ -90,6 +91,7 @@
         <members>DX</members>
         <members>Hello_World</members>
         <members>Test_Flexi</members>
+        <members>xasxaxsx</members>
         <name>CustomApplication</name>
     </types>
     <types>
@@ -221,6 +223,8 @@
         <members>SkillRequirement.CurrencyIsoCode</members>
         <members>Solution.CurrencyIsoCode</members>
         <members>Solution.Status</members>
+        <members>SurveyInvitation.ResponseStatus</members>
+        <members>SurveySubject.SubjectEntityType</members>
         <members>Task.CallType</members>
         <members>Task.Priority</members>
         <members>Task.RecurrenceRegeneratedType</members>
@@ -277,6 +281,10 @@
     <types>
         <members>createContact</members>
         <name>EmailServicesFunction</name>
+    </types>
+    <types>
+        <members>unfiled$public/dscsc</members>
+        <name>EmailTemplate</name>
     </types>
     <types>
         <members>Account.AccountFiledSet</members>

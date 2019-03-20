@@ -1,2 +1,5 @@
 <apex:component >
+<script>
+ alert('please enter a valid name');
+</script>
 </apex:component>
