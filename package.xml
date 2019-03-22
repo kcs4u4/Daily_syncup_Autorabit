@@ -329,6 +329,10 @@
         <name>Layout</name>
     </types>
     <types>
+        <members>pubsub</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <types>
         <members>Account.AllAccounts</members>
         <members>Account.sscascs</members>
         <members>Audit_Trail__c.All</members>
