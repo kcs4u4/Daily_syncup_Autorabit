@@ -146,6 +146,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>MC4SF__MC_Subscriber__c.Mail_Test__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.LeadSource</field>
         <readable>true</readable>
@@ -215,6 +220,7 @@
     <layoutAssignments>
         <layout>ServiceContract-Service Contract Layout</layout>
     </layoutAssignments>
+    <loginHours/>
     <pageAccesses>
         <apexPage>PdfPage</apexPage>
         <enabled>false</enabled>

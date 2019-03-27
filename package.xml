@@ -194,6 +194,7 @@
         <members>LiveChatTranscript.EndedBy</members>
         <members>LiveChatTranscript.Status</members>
         <members>LiveChatTranscriptEvent.Type</members>
+        <members>MC4SF__MC_Subscriber__c.Mail_Test__c</members>
         <members>Macro.StartingContext</members>
         <members>Metric.CurrencyIsoCode</members>
         <members>Metric.Status</members>
