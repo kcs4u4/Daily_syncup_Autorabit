@@ -110,6 +110,7 @@
         <members>Account.Industry</members>
         <members>Account.Ownership</members>
         <members>Account.Rating</members>
+        <members>Account.Test_Kareem__c</members>
         <members>Account.Type</members>
         <members>Account.of_Ownership__c</members>
         <members>AccountContactRole.Role</members>
@@ -439,6 +440,8 @@
         <name>QuickAction</name>
     </types>
     <types>
+        <members>Account.NewAccountRecordType</members>
+        <members>Account.Test_Kareem</members>
         <members>Case.Test</members>
         <name>RecordType</name>
     </types>

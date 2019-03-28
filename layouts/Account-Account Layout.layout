@@ -79,6 +79,10 @@
                 <behavior>Edit</behavior>
                 <field>of_Ownership__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Test_Kareem__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
